@@ -7,7 +7,7 @@ module Quandl
     end
 
     def self.determine_root
-      find_first_parent_containing('lib') || '.'
+      find_first_parent_containing('config') || '.'
     end
 
     def self.find_first_parent_containing(dir)

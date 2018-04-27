@@ -3,9 +3,9 @@ $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'quandl/config/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'quandl-config'
+  spec.name          = 'quandl-hub-config'
   spec.version       = Quandl::Configurable::VERSION
-  spec.authors       = ['Matthew Basset', 'Najwa Azer']
+  spec.authors       = ['Matthew Basset', 'Najwa Azer', 'Aristotelis Kollias']
   spec.email         = ['dev@quandl.com']
   spec.homepage      = 'https://github.com/quandl/quandl-config'
   spec.summary       = 'OpenStruct-based per-class configuration.'
