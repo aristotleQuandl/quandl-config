@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Quandl::Config do
-  subject(:configuration) { Quandl::Config.new('fake') }
+describe Quandl::Hub::Config do
+  subject(:configuration) { Quandl::Hub::Config.new('fake') }
 
   describe '.initialize' do
     it 'generates a Config class, evaluating ERB' do

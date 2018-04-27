@@ -1,5 +1,7 @@
 module Quandl
-  module Configurable
-    VERSION = '1.0.1.pre2'
+  module Hub
+  	module Configurable
+    	VERSION = '1.0.1.pre2'
+    end
   end
 end

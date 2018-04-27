@@ -9,9 +9,9 @@ module ConfigurationOverride
   end
 end
 
-describe Quandl::Configurable do
+describe Quandl::Hub::Configurable do
   before(:each) do
-    Quandl::Config.clear_internal_cache
+    Quandl::Hub::Config.clear_internal_cache
   end
 
   shared_examples 'override configuration' do
@@ -26,12 +26,12 @@ describe Quandl::Configurable do
     subject { Fake.configuration }
 
     before(:each) do
-      Fake.extend(Quandl::Configurable)
+      Fake.extend(Quandl::Hub::Configurable)
       Fake.instance_variable_set(:@configuration, nil)
     end
 
     it 'adds a configuration class method' do
-      expect(subject).to be_kind_of(Quandl::Config)
+      expect(subject).to be_kind_of(Quandl::Hub::Config)
     end
 
     context 'when overriding configuration options' do
@@ -47,11 +47,11 @@ describe Quandl::Configurable do
     subject { Fake.new.configuration }
 
     before(:each) do
-      Fake.include(Quandl::Configurable)
+      Fake.include(Quandl::Hub::Configurable)
     end
 
     it 'adds a configuration instance method' do
-      expect(subject).to be_kind_of(Quandl::Config)
+      expect(subject).to be_kind_of(Quandl::Hub::Config)
     end
 
     context 'when overriding configuration options' do

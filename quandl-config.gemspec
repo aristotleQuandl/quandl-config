@@ -4,7 +4,7 @@ require 'quandl/config/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'quandl-hub-config'
-  spec.version       = Quandl::Configurable::VERSION
+  spec.version       = Quandl::Hub::Configurable::VERSION
   spec.authors       = ['Matthew Basset', 'Najwa Azer', 'Aristotelis Kollias']
   spec.email         = ['dev@quandl.com']
   spec.homepage      = 'https://github.com/quandl/quandl-config'

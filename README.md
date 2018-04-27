@@ -1,4 +1,4 @@
-# Quandl::Config [![Build Status](https://travis-ci.org/quandl/quandl-config.svg?branch=master)](https://travis-ci.org/quandl/quandl-config)
+# Quandl::Hub::Config [![Build Status](https://travis-ci.org/quandl/quandl-config.svg?branch=master)](https://travis-ci.org/quandl/quandl-config)
 
 This gem allows you to quickly convert YML files into a `Config` object where the attributes can be accessed using dot, hash symbol or hash string notation.
 
@@ -24,24 +24,24 @@ class: A::B::C
 file name: config/a/b/c.yml
 ```
 
-2. Extend the `Quandl::Configurable` class. This adds a configuration class method.
+2. Extend the `Quandl::Hub::Configurable` class. This adds a configuration class method.
 ```ruby
 class A::B::C
-  extend Quandl::Configurable
+  extend Quandl::Hub::Configurable
 end
 ```
 
 ```ruby
 pry
 pry> A::B::C.configuration
-=> #<Quandl::Config language="spanish", hello="hola">
+=> #<Quandl::Hub::Config language="spanish", hello="hola">
 ```
 
 ### What if my yml file name doesn't match the class name?
 
 ```ruby
 class A::B::Special
-  extend Quandl::Configurable
+  extend Quandl::Hub::Configurable
   def self.file_name
     'database_zip_uploader'
   end
@@ -52,7 +52,7 @@ end
 
 ```ruby
 class A::B::C
-  include Quandl::Configurable
+  include Quandl::Hub::Configurable
 end
 ```
 
@@ -69,7 +69,7 @@ You can override default values by adding a `configuration_options` method to yo
 
 ```ruby
 class A::B::Special
-  extend Quandl::Configurable
+  extend Quandl::Hub::Configurable
   
   def self.configuration_options
     {
@@ -86,7 +86,7 @@ end
 
 quandl-config utilizes an internal caching schema to save previously loaded configurations so that they don't load twice. You may need to restart your server in certain cases depending on how quandl-config was used in your project.
 
-Additionally if you have `included` via `include Quandl::Configurable` you can use the following method to reset the internal config. This however will not work when `extending` the module.
+Additionally if you have `included` via `include Quandl::Hub::Configurable` you can use the following method to reset the internal config. This however will not work when `extending` the module.
 
 ```ruby
 Quandl::Config.clear_internal_cache

@@ -1,19 +1,21 @@
 require 'active_support/inflector'
 
 module Quandl
-  module Configurable
-    def configuration
-      @configuration ||= Quandl::Config.new(file_name, configuration_options)
-    end
+  module Hub
+    module Configurable
+      def configuration
+        @configuration ||= Quandl::Hub::Config.new(file_name, configuration_options)
+      end
 
-    private
+      private
 
-    def file_name
-      defined?(name) ? name.underscore : self.class.name.underscore
-    end
+      def file_name
+        defined?(name) ? name.underscore : self.class.name.underscore
+      end
 
-    def configuration_options
-      {}
+      def configuration_options
+        {}
+      end
     end
-  end
+end
 end
